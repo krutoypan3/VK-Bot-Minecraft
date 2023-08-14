@@ -19,10 +19,12 @@ class Scheduler: Thread() {
                     if (playersString.isNotBlank() || Values.PLAYERS_ON_THE_SERVER.isNotEmpty()) {
                         val players = playersString.split(", ").filter { it.isNotBlank() }.toMutableSet()
                         if (players != Values.PLAYERS_ON_THE_SERVER) {
-                            val leaveFromServer = Values.PLAYERS_ON_THE_SERVER
+                            val leaveFromServer = mutableSetOf<String>()
+                            leaveFromServer.addAll(Values.PLAYERS_ON_THE_SERVER)
                             leaveFromServer.removeAll(players)
 
-                            val enterToServer = players
+                            val enterToServer = mutableSetOf<String>()
+                            enterToServer.addAll(players)
                             enterToServer.removeAll(Values.PLAYERS_ON_THE_SERVER)
 
                             var message = ""

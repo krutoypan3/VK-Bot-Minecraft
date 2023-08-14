@@ -7,12 +7,11 @@ import com.vk.api.sdk.events.longpoll.GroupLongPollApi
 import com.vk.api.sdk.objects.callback.messages.CallbackMessage
 import com.vk.api.sdk.objects.messages.Message
 import minecraft.MinecraftRcon
-import kotlin.random.Random
 
 class VkEventHandler(
-    private val client: VkApiClient,
-    private val actor: GroupActor,
-    private val waitTime: Int,
+    client: VkApiClient,
+    actor: GroupActor,
+    waitTime: Int,
 ) : GroupLongPollApi(client, actor, waitTime) {
 
     private fun messagePrepare(message: Message) {
