@@ -23,4 +23,5 @@ object Config {
      * Отсылать онлайн статус в ВК бота при изменении
      */
     const val IS_LIVE_STATUS = true
+    const val LIVE_STATUS_UPDATE_TIME_MS = 60L * 1000L
 }

@@ -55,7 +55,7 @@ class Scheduler: Thread() {
                         }
                     }
                 }
-                sleep(10000)
+                sleep(Config.LIVE_STATUS_UPDATE_TIME_MS)
             }
         }
     }
