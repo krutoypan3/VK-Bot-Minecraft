@@ -6,8 +6,9 @@ class Scheduler: Thread() {
 
     override fun run() {
         super.run()
+
         while (true) {
-            if (Config.IS_LIVE_STATUS) {
+            if (Values.config?.VK_IS_LIVE_STATUS!!) {
                 MinecraftRcon.withRcon { rcon ->
                     val result = rcon.command("list")
                     // Result example
@@ -47,7 +48,7 @@ class Scheduler: Thread() {
                             VkBot.withVkBot { client, actor ->
                                 client.messages().send(actor)
                                     .message(message)
-                                    .peerId(Config.VkConnect.PRIMARY_CHAT_PEER_ID)
+                                    .peerId(Values.config?.VK_PRIMARY_CHAT_PEER_ID!!)
                                     .randomId(Random.nextInt(10000))
                                     .execute()
                             }
@@ -55,7 +56,7 @@ class Scheduler: Thread() {
                         }
                     }
                 }
-                sleep(Config.LIVE_STATUS_UPDATE_TIME_MS)
+                sleep(Values.config?.VK_LIVE_STATUS_UPDATE_TIME_MS!!)
             }
         }
     }

@@ -1,5 +1,6 @@
 package vk
 
+import Values
 import com.vk.api.sdk.client.VkApiClient
 import com.vk.api.sdk.client.actors.GroupActor
 import com.vk.api.sdk.httpclient.HttpTransportClient
@@ -11,8 +12,8 @@ object VkBot {
             val httpClient: HttpTransportClient = HttpTransportClient.getInstance()
             val vkClient = VkApiClient(httpClient)
             val groupActor = GroupActor(
-                Config.VkConnect.GROUP_ID,
-                Config.VkConnect.ACCESS_TOKEN,
+                Values.config?.VK_GROUP_ID,
+                Values.config?.VK_ACCESS_TOKEN,
             )
             vkApiClient(vkClient, groupActor)
         } catch (e: Exception) {
@@ -22,7 +23,7 @@ object VkBot {
         }
     }
 
-    fun sendMessage(message: String, peerId: Int = Config.VkConnect.PRIMARY_CHAT_PEER_ID) {
+    fun sendMessage(message: String, peerId: Int = Values.config?.VK_PRIMARY_CHAT_PEER_ID!!) {
         withVkBot { client, actor ->
             client.messages().send(actor)
                 .message(message)

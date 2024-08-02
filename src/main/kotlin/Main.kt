@@ -1,6 +1,15 @@
+import com.google.gson.Gson
 import vk.VkServer
+import java.io.File
 
 fun main() {
-    VkServer().start()
+    val file = File("config.txt")
+    val content = file.readText()
+    println("Load config from file: ${file.absolutePath}")
+    val botConfig = Gson().fromJson(content, BotConfig::class.java)
+
+    Values.config = botConfig
+
     Scheduler().start()
+    VkServer().start()
 }

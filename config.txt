@@ -1,0 +1,19 @@
+{
+    "MINECRAFT_SERVER_IP": "127.0.0.1",                 // IP адрес сервера
+    "MINECRAFT_SERVER_RCON_PORT": "25575",              // RCON порт сервера
+    "MINECRAFT_SERVER_RCON_PASSWORD": "SECRET_VALUE",   // RCON пароль сервера
+    "VK_GROUP_ID": "SECRET_VALUE",                      // ID Группы с ботом
+
+    /*
+     Токен группы с ботом
+
+     Как получить:
+     1) Зайти на страницу сообщества (вы - администратор, короче должны быть права на него)
+     2) Управление -> Работа с API -> Создать ключ, этот ключ вставляете в значение переменной
+     3) Во вкладке Long Poll API поставить значение "Long Poll API": 'Включено'
+     */
+    "VK_ACCESS_TOKEN": "SECRET_VALUE",
+    "VK_PRIMARY_CHAT_PEER_ID": "2000000001",            // ID основной беседы бота
+    "VK_IS_LIVE_STATUS": "true",                        // Отсылать онлайн статус в ВК бота при изменении (true/false)
+    "VK_LIVE_STATUS_UPDATE_TIME_MS": "60000"            // Как часто нужно обновлять статус в миллисекундах
+}

@@ -1,12 +1,12 @@
 package vk
 
-import Config
+import Values
 
 class VkServer {
     fun start() {
         try {
             VkBot.withVkBot { client, actor ->
-                client.groupsLongPoll().setLongPollSettings(actor, Config.VkConnect.GROUP_ID)
+                client.groupsLongPoll().setLongPollSettings(actor, Values.config?.VK_GROUP_ID!!)
                     .enabled(true)
                     .messageNew(true)
                     .execute()
