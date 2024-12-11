@@ -10,6 +10,8 @@ fun main() {
 
     Values.config = botConfig
 
+    println("Config loaded")
+
     Scheduler().start()
     VkServer().start()
 }

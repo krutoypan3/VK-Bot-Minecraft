@@ -1,5 +1,6 @@
 package vk
 
+import Values
 import com.vk.api.sdk.client.VkApiClient
 import com.vk.api.sdk.client.actors.GroupActor
 import com.vk.api.sdk.events.Events
@@ -26,6 +27,16 @@ class VkEventHandler(
                     val result = rcon.command(text.removePrefix("/"))
                     println(result)
                     VkBot.sendMessage(result)
+                }
+            }
+
+            text.startsWith("/") -> {
+                if (Values.config?.VK_ADMIN_IDS?.contains(message.fromId) == true) {
+                    MinecraftRcon.withRcon { rcon ->
+                        val result = rcon.command(text.removePrefix("/"))
+                        println(result)
+                        VkBot.sendMessage(result)
+                    }
                 }
             }
         }

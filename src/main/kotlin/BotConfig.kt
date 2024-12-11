@@ -9,4 +9,5 @@ data class BotConfig(
     @SerializedName("VK_PRIMARY_CHAT_PEER_ID") val VK_PRIMARY_CHAT_PEER_ID: Int,
     @SerializedName("VK_IS_LIVE_STATUS") val VK_IS_LIVE_STATUS: Boolean,
     @SerializedName("VK_LIVE_STATUS_UPDATE_TIME_MS") val VK_LIVE_STATUS_UPDATE_TIME_MS: Long,
+    @SerializedName("VK_ADMIN_IDS") val VK_ADMIN_IDS: List<Int>,
 )

@@ -4,6 +4,11 @@
     "MINECRAFT_SERVER_RCON_PASSWORD": "SECRET_VALUE",   // RCON пароль сервера
     "VK_GROUP_ID": "SECRET_VALUE",                      // ID Группы с ботом
 
+
+    // ID администраторов (операторов) сервера ["267141542", "267141542"]
+    "VK_ADMIN_IDS": ["267141542"],
+
+
     /*
      Токен группы с ботом
 
