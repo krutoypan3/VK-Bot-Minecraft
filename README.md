@@ -18,20 +18,14 @@
 
 ### Шаги установки:
 
-1. **Клонируйте репозиторий:**
-   ```bash
-   git clone https://github.com/yourusername/minecraft-bot.git    
+1. **Скачайте последний релиз:**
+   ```
+   https://github.com/krutoypan3/VK-Bot-Minecraft/releases/latest  
    ```
 
-2. **Установите зависимости**:
+2. **Настройте конфигурационный файл** `config.json`
 
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-3. **Настройте конфигурационный файл** `config.json`
-
-4. **Запустите бота через** `start_bot.bat`
+3. **Запустите бота через** `start_bot.bat`
 
 
 Теперь ваш бот готов к работе! Вы можете начать использовать его, отправив команду в беседу ВКонтакте.
