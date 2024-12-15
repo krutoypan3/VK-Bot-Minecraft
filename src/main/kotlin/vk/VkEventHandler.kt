@@ -22,9 +22,9 @@ class VkEventHandler(
                 VkBot.sendMessage("Искренне вас приветствую!", message.peerId)
             }
 
-            text.startsWith("/list") -> {
+            text == "/online" -> {
                 MinecraftRcon.withRcon { rcon ->
-                    val result = rcon.command(text.removePrefix("/"))
+                    val result = rcon.command("/list")
                     println(result)
                     VkBot.sendMessage(result)
                 }
