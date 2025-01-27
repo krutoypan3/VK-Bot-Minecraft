@@ -1,5 +1,7 @@
+import com.google.gson.Gson
 import minecraft.MinecraftRcon
 import vk.VkBot
+import java.io.File
 import kotlin.random.Random
 
 class Scheduler: Thread() {
@@ -54,6 +56,16 @@ class Scheduler: Thread() {
                             }
                             println(message)
                         }
+                    }
+                    Values.PLAYERS_ON_THE_SERVER.forEach { playerName ->
+                        val statFile = File("vk_bot_stats.txt")
+                        if (!statFile.exists()) statFile.createNewFile()
+                        var statContent = statFile.readText()
+                        if (statContent.isBlank()) statContent = "\"data\":[{\"playerName\":\"aaaaa\", \"timeOnServer\":1}]"
+                        val statistics = Gson().fromJson(statContent, PlayersStatistics::class.java) ?: PlayersStatistics(listOf())
+                            .data.first { it.playerName == playerName }
+                                .apply { timeOnServer += Values.config?.VK_LIVE_STATUS_UPDATE_TIME_MS!! }
+                        statFile.writeText(Gson().toJson(statistics))
                     }
                 }
                 sleep(Values.config?.VK_LIVE_STATUS_UPDATE_TIME_MS!!)
